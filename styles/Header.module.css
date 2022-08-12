@@ -1,13 +1,149 @@
 .header {
+    height: 100%;
+    height: 15vh;
+    max-height: 80px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-dark-2);
+    position: sticky;
+}
+
+.container {
+    width: 95%;
+    max-width: 1100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--clr-dark-2);
     color: var(--clr-light-1);
-    padding: 30px 150px;
 }
+
+.header .logo {
+    max-width: 150px;
+    width: 50%;
+}
+
+.container>div {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
 
 .links {
     display: flex;
-    gap: 10px;
+    gap: 40px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.links li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.links li:hover {
+    color: var(--clr-primary-2);
+}
+
+.links li svg {
+    display: none;
+}
+
+.links li:hover svg {
+    fill: var(--clr-primary-2);
+}
+
+
+/* Icons */
+.cart,
+.hamburger {
+    color: var(--clr-light-1);
+    font-size: 1.75rem;
+    border: 2px solid var(--clr-light-4);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.header .hamburger {
+    display: none;
+    padding: 0px;
+}
+
+/* layer */
+.header .layer {
+    display: none;
+}
+
+/* *********************************** */
+/* *********************************** */
+/* Media query */
+@media screen and (min-width:0px) and (max-width:1024px) {
+    .header {
+        padding: 0px 10px;
+    }
+
+    .header .hamburger {
+        display: flex;
+    }
+
+    .header nav {
+        width: 100%;
+        gap: 25px;
+        background: var(--clr-dark-2);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        transform: translateY(-100%);
+        transition: .5s;
+        z-index: -1;
+        padding: 25px 10px;
+    }
+
+    .links {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .links li {
+        border: 2px solid var(--clr-light-4);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+
+    .links li svg {
+        display: flex;
+        transition: .5s;
+    }
+
+    .header .showNav {
+        transform: translateY(0%);
+    }
+
+    .header .layer {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background: var(--clr-dark-2);
+        position: absolute;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    .links {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 0px;
+    }
+
+    .links li {
+        width: 24%;
+    }
 }

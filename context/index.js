@@ -1,8 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 const AppContext = React.createContext();
 const Provider = ({ children }) => {
-  return <AppContext.Provider>{children}</AppContext.Provider>;
+  const [navOpen, setNavOpen] = useState(false);
+
+  return (
+    <AppContext.Provider
+      value={{
+        navOpen,
+        setNavOpen,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export const useGlobal = () => {
