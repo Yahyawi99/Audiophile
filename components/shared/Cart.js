@@ -3,9 +3,9 @@ import React from "react";
 import { MdClose, MdShoppingCart } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
 // context
-import { useGlobal } from "../context";
+import { useGlobal } from "../../context";
 // css
-import cartStyles from "../styles/Cart.module.css";
+import cartStyles from "../../styles/shared/Cart.module.css";
 
 const Cart = () => {
   const { cartOpen, setCartOpen } = useGlobal();

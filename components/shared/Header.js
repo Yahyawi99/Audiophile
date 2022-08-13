@@ -9,9 +9,9 @@ import {
 } from "react-icons/md";
 import { Squash } from "hamburger-react";
 // useContext
-import { useGlobal } from "../context";
+import { useGlobal } from "../../context";
 // css
-import headerStyles from "../styles/Header.module.css";
+import headerStyles from "../../styles/shared/Header.module.css";
 
 const Header = () => {
   const { navOpen, setNavOpen, setCartOpen, currentRoute, navigateTo } =

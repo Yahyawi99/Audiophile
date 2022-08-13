@@ -1,7 +1,7 @@
 import React from "react";
 // components
-import Header from "./Header";
-import Cart from "./Cart";
+import Header from "./shared/Header";
+import Cart from "./shared/Cart";
 
 const Layout = ({ children }) => {
   return (
