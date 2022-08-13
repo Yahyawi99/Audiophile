@@ -14,7 +14,8 @@ import { useGlobal } from "../context";
 import headerStyles from "../styles/Header.module.css";
 
 const Header = () => {
-  const { navOpen, setNavOpen } = useGlobal();
+  const { navOpen, setNavOpen, setCartOpen, currentRoute, navigateTo } =
+    useGlobal();
 
   return (
     <header className={headerStyles.header}>
@@ -33,35 +34,58 @@ const Header = () => {
           <nav className={`${navOpen ? headerStyles.showNav : ""}`}>
             <ul className={headerStyles.links}>
               <Link href="/">
-                <li>
+                <li
+                  className={`${
+                    currentRoute === "/" && headerStyles.currentPage
+                  }`}
+                  onClick={() => navigateTo("/")}
+                >
                   <p>HOME</p>
                   <MdHome />
                 </li>
               </Link>
 
-              <Link href="/">
-                <li>
+              <Link href="/category/headphones">
+                <li
+                  className={`${
+                    currentRoute === "/category/headphones" &&
+                    headerStyles.currentPage
+                  }`}
+                  onClick={() => navigateTo("/category/headphones")}
+                >
                   <p>HEADPHONES</p>
                   <MdHeadphones />
                 </li>
               </Link>
 
-              <Link href="/">
-                <li>
+              <Link href="/category/speakers">
+                <li
+                  className={`${
+                    currentRoute === "/category/speakers" &&
+                    headerStyles.currentPage
+                  }`}
+                  onClick={() => navigateTo("/category/speakers")}
+                >
                   <p>SPEAKERS</p>
                   <MdSpeaker />
                 </li>
               </Link>
 
-              <Link href="/">
-                <li>
+              <Link href="/category/earphones">
+                <li
+                  className={`${
+                    currentRoute === "/category/earphones" &&
+                    headerStyles.currentPage
+                  }`}
+                  onClick={() => navigateTo("/category/earphones")}
+                >
                   <p>EARPHONES</p>
                   <svg
                     stroke="currentColor"
                     fill="#fff"
                     strokeWidth="0"
                     viewBox="0 0 16 16"
-                    class="styles_icon__JJcF5"
+                    className="styles_icon__JJcF5"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +100,13 @@ const Header = () => {
             </ul>
           </nav>
 
-          <button className={headerStyles.cart}>
+          <button
+            className={headerStyles.cart}
+            onClick={() => {
+              setCartOpen(true);
+              setNavOpen(false);
+            }}
+          >
             <MdOutlineShoppingCart />
           </button>
         </div>
