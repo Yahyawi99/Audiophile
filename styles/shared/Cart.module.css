@@ -7,6 +7,7 @@
     transform: translateY(100%);
     top: 0;
     transition-delay: .5s;
+    z-index: 10;
 }
 
 .container {
@@ -80,6 +81,10 @@
     background-color: var(--clr-primary-2);
 }
 
+.container footer button:focus-visible {
+    box-shadow: rgba(236, 92, 73, 0.5) 0px 0px 0px 5px;
+}
+
 /* Items */
 .items {
     height: calc(100% - 229px);
@@ -128,7 +133,7 @@
     cursor: pointer;
 }
 
-.quantity svg:nth-child(3) {
+.quantity button:nth-child(3) {
     color: rgb(10, 201, 10);
 }
 

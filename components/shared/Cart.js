@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 // icons
 import { MdClose, MdShoppingCart } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
@@ -18,7 +19,9 @@ const Cart = () => {
         <header>
           <p className={cartStyles.title}>CART</p>
 
-          <MdClose onClick={() => setCartOpen(false)} />
+          <button onClick={() => setCartOpen(false)}>
+            <MdClose />
+          </button>
         </header>
 
         <section className={cartStyles.items}>
@@ -34,9 +37,15 @@ const Cart = () => {
             </div>
 
             <div className={cartStyles.quantity}>
-              <FaMinus />
+              <button>
+                <FaMinus />
+              </button>
+
               <p>1</p>
-              <FaPlus />
+
+              <button>
+                <FaPlus />
+              </button>
             </div>
           </div>
         </section>
@@ -47,10 +56,12 @@ const Cart = () => {
             <p>$ 4,500</p>
           </div>
 
-          <button>
-            <MdShoppingCart />
-            <p>CHECKOUT</p>
-          </button>
+          <Link href="/">
+            <button>
+              <MdShoppingCart />
+              <p>CHECKOUT</p>
+            </button>
+          </Link>
         </footer>
       </div>
 

@@ -9,11 +9,12 @@
     background: var(--clr-dark-2);
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 .container {
     width: 95%;
-    max-width: 1000px;
+    max-width: 1050px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -34,12 +35,14 @@
 
 .links {
     display: flex;
+    align-items: center;
     gap: 40px;
     font-size: 1rem;
     letter-spacing: 1px;
 }
 
-.links li {
+.links a {
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,15 +50,15 @@
     transition: color .5s;
 }
 
-.links li:hover {
+.links a:hover {
     color: var(--clr-primary-2);
 }
 
-.links li svg {
+.links a svg {
     display: none;
 }
 
-.links li:hover svg {
+.links a:hover svg {
     fill: var(--clr-primary-2);
 }
 
