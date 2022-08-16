@@ -13,18 +13,18 @@ function Category() {
         const { id, title, href, src } = e;
 
         return (
-          <div key={id}>
-            <img src={src} alt={title} />
+          <Link href={href} key={id}>
+            <div>
+              <img src={src} alt={title} />
 
-            <h2>{title}</h2>
+              <h2>{title}</h2>
 
-            <Link href={href}>
               <button>
                 <p>SHOP</p>
                 <MdKeyboardArrowRight />
               </button>
-            </Link>
-          </div>
+            </div>
+          </Link>
         );
       })}
     </section>

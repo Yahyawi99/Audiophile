@@ -1,8 +1,7 @@
 .container {
-    width: 95%;
+    width: 100%;
     max-width: 1100px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     margin: 150px auto;
 }
@@ -10,20 +9,20 @@
 
 
 .container>div {
-    width: 100%;
-    max-width: 300px;
+    width: 90%;
+    max-width: 325px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--clr-light-3);
     box-shadow: var(--bs-2);
     border-radius: 10px;
+    cursor: pointer;
     padding: 0px 25px;
 }
 
 .container>div img {
-    width: 50%;
-    max-width: 300px;
+    max-width: 150px;
     margin: -50px 0px 0px 0px;
 }
 
@@ -36,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 0px;
+    margin: 10px 0px 15px 0px;
 }
 
 .container>div p {
@@ -52,10 +51,26 @@
 }
 
 /* Hover effects */
-.container>div button:hover svg {
+.container>div:hover button svg {
     transform: translateX(5px);
 }
 
-.container>div button:hover p {
+.container>div:hover button p {
     color: var(--clr-primary-2);
+}
+
+
+/* **************************** */
+/* **************************** */
+/* Media Query */
+@media screen and (max-width:1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+    }
+
+    .container>div {
+        max-width: initial;
+    }
 }
