@@ -128,3 +128,93 @@
     background-color: var(--clr-dark-2);
     color: var(--clr-light-3);
 }
+
+/* ******************************** */
+/* ******************************** */
+/* Media Query */
+@media screen and (max-width:1024px) {
+
+    /* First */
+    .container>div:nth-child(1) {
+        flex-direction: column;
+        gap: 50px;
+        padding: 75px 0px 50px 0px;
+    }
+
+    .container>div:nth-child(1) img {
+        max-width: 200px;
+        content: url("/assets/home/tablet/image-speaker-zx9.png");
+        top: 0px;
+    }
+
+    .container>div:nth-child(1) div {
+        flex: 1;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .container>div:nth-child(1) div p {
+        width: 95%;
+        max-width: 400px;
+    }
+
+
+    /* Second */
+    .container>div:nth-child(2) {
+        background: url("/assets/home/tablet/image-speaker-zx7.jpg") center/cover no-repeat;
+    }
+
+
+    /* Third */
+    .container>div:nth-child(3) h2 {
+        font-size: 2.25rem;
+    }
+
+    .container>div:nth-child(3) div:nth-child(1) {
+        background: url("/assets/home/tablet/image-earphones-yx1.jpg") center/cover no-repeat;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:650px) {
+
+    /* First */
+    .container>div:nth-child(1) img {
+        max-width: 150px;
+        content: url("/assets/home/mobile/image-speaker-zx9.png");
+    }
+
+
+    /* Second */
+    .container>div:nth-child(2) {
+        background: url("/assets/home/mobile/image-speaker-zx7.jpg") center/cover no-repeat;
+        padding: 100px 0px 100px 25px;
+    }
+
+
+    /* Third */
+    .container>div:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .container>div:nth-child(3) h2 {
+        font-size: 2rem;
+    }
+
+    .container>div:nth-child(3) div:nth-child(1) {
+        min-height: 300px;
+        order: -1;
+        background: url("/assets/home/tablet/image-earphones-yx1.jpg") center/cover no-repeat;
+    }
+
+    .container>div:nth-child(3) h2 {
+        margin-left: 25px;
+    }
+
+    .container>div:nth-child(3) button {
+        margin-left: 25px;
+    }
+}

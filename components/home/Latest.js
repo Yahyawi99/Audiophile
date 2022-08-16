@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 // css
 import latestStyles from "../../styles/home/Latest.module.css";
 
@@ -19,14 +20,18 @@ const Latest = () => {
             truly remarkable sound.
           </p>
 
-          <button>SEE PRODUCT</button>
+          <Link href="/">
+            <button>SEE PRODUCT</button>
+          </Link>
         </div>
       </div>
 
       <div>
         <h2>ZX7 SPEAKER</h2>
 
-        <button>SEE PRODUCT</button>
+        <Link href="/">
+          <button>SEE PRODUCT</button>
+        </Link>
       </div>
 
       <div>
@@ -35,7 +40,9 @@ const Latest = () => {
         <div>
           <h2>YX1 EARPHONES</h2>
 
-          <button>SEE PRODUCT</button>
+          <Link href="/">
+            <button>SEE PRODUCT</button>
+          </Link>
         </div>
       </div>
     </section>
