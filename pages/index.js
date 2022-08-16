@@ -4,6 +4,7 @@ import Head from "next/head";
 import Intro from "../components/home/Intro";
 import Category from "../components/shared/Category";
 import Latest from "../components/home/Latest";
+import About from "../components/shared/About";
 // css
 import homeStyles from "../styles/home/Home.module.css";
 
@@ -20,6 +21,8 @@ export default function Home() {
         <Category />
 
         <Latest />
+
+        <About />
       </section>
     </>
   );

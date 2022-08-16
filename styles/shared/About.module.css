@@ -1,0 +1,86 @@
+.container {
+    width: 95%;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 150px auto;
+}
+
+
+.container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+.container div h2 {
+    max-width: 400px;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 2px;
+}
+
+.container div h2 span {
+    color: var(--clr-primary-1);
+}
+
+.container div p {
+    max-width: 550px;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 30px;
+}
+
+
+.container img {
+    max-width: 500px;
+    content: url("/assets/shared/desktop/image-best-gear.jpg");
+    border-radius: 10px;
+}
+
+/* **************************** */
+/* **************************** */
+/* Media query */
+@media screen and (max-width:1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container img {
+        width: 100%;
+        max-width: initial;
+        content: url("/assets/shared/tablet/image-best-gear.jpg");
+        order: -1;
+    }
+
+
+    .container div {
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .container div p {
+        width: 100%;
+        max-width: initial;
+    }
+
+    .container div h2 {
+        max-width: 600px;
+        line-height: 45px;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:600px) {
+    .container img {
+        width: 100%;
+        max-width: initial;
+        content: url("/assets/shared/mobile/image-best-gear.jpg");
+        order: -1;
+    }
+}
