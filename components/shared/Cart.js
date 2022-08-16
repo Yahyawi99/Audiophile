@@ -8,7 +8,7 @@ import { useGlobal } from "../../context";
 // css
 import cartStyles from "../../styles/shared/Cart.module.css";
 
-const Cart = () => {
+function Cart() {
   const { cartOpen, setCartOpen } = useGlobal();
 
   return (
@@ -71,6 +71,6 @@ const Cart = () => {
       ></div>
     </section>
   );
-};
+}
 
 export default Cart;

@@ -123,16 +123,18 @@
     .links {
         flex-direction: column;
         gap: 25px;
+        padding: 0px 10px;
     }
 
-    .links li {
+    .links a {
+        width: 95%;
         border: 2px solid var(--clr-light-4);
         border-radius: 10px;
         padding: 10px;
     }
 
 
-    .links li svg {
+    .links a svg {
         display: flex;
         transition: .5s;
     }
@@ -160,7 +162,7 @@
         gap: 0px;
     }
 
-    .links li {
-        width: 24%;
+    .links a {
+        width: 20%;
     }
 }

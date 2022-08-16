@@ -2,7 +2,7 @@ import React from "react";
 // css
 import introStyles from "../../styles/home/Intro.module.css";
 
-const Intro = () => {
+function Intro() {
   return (
     <>
       <section className={introStyles.intro}>
@@ -30,6 +30,6 @@ const Intro = () => {
       <div className={introStyles.background}></div>
     </>
   );
-};
+}
 
 export default Intro;
