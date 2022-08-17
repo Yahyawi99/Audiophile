@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobal } from "../../context";
 import { products } from "../../data";
+import Link from "next/link";
 // css
 import productStyles from "../../styles/categories/Products.module.css";
 
@@ -9,6 +10,8 @@ const Products = ({ category: filter }) => {
 
   let data = products.filter((e) => e.category === filter);
   data = sortArr(data);
+
+  console.log(data);
 
   return (
     <section className={productStyles.container}>
@@ -33,14 +36,15 @@ const Products = ({ category: filter }) => {
 
             <div>
               {isNew && <p className={productStyles.new}>NEW PRODUCT</p>}
-
               <span>
                 <h2>{shortName}</h2>
                 <h2>{category.toLocaleUpperCase()}</h2>
               </span>
-
               <p>{description}</p>
-              <button>SEE PRODUCT</button>
+
+              <Link href={`/product/${slug}`}>
+                <button>SEE PRODUCT</button>
+              </Link>
             </div>
           </div>
         );

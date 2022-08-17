@@ -20,7 +20,7 @@ const Latest = () => {
             truly remarkable sound.
           </p>
 
-          <Link href="/">
+          <Link href="/product/zx9-speaker">
             <button>SEE PRODUCT</button>
           </Link>
         </div>
@@ -29,7 +29,7 @@ const Latest = () => {
       <div>
         <h2>ZX7 SPEAKER</h2>
 
-        <Link href="/">
+        <Link href="/product/zx7-speaker">
           <button>SEE PRODUCT</button>
         </Link>
       </div>
@@ -40,7 +40,7 @@ const Latest = () => {
         <div>
           <h2>YX1 EARPHONES</h2>
 
-          <Link href="/">
+          <Link href="/product/yx1-earphones">
             <button>SEE PRODUCT</button>
           </Link>
         </div>

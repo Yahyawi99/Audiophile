@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 // css
 import introStyles from "../../styles/home/Intro.module.css";
 
@@ -19,7 +20,9 @@ function Intro() {
             made for the passionate music enthusiast.
           </p>
 
-          <button>SEE PRODUCT</button>
+          <Link href="/product/xx99-mark-two-headphones">
+            <button>SEE PRODUCT</button>
+          </Link>
         </div>
 
         <div className={introStyles.introImage}>
