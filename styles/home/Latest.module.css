@@ -63,10 +63,13 @@
 
 .container>div:nth-child(1) button {
     background-color: var(--clr-dark-2);
+    border: 2px solid transparent;
 }
 
 .container>div:nth-child(1) button:hover {
-    filter: opacity(80%);
+    background-color: transparent;
+    color: var(--clr-dark-2);
+    border: 2px solid var(--clr-dark-2);
 }
 
 
