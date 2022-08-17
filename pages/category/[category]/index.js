@@ -7,7 +7,7 @@ import Category from "../../../components/shared/Category";
 import About from "../../../components/shared/About";
 import Footer from "../../../components/shared/Footer";
 
-const index = () => {
+function Index() {
   const {
     query: { category },
   } = useRouter();
@@ -25,6 +25,6 @@ const index = () => {
       <Footer />
     </section>
   );
-};
+}
 
 export default index;
