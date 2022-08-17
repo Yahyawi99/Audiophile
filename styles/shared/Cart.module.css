@@ -87,7 +87,7 @@
 
 /* Items */
 .items {
-    height: calc(100% - 229px);
+    height: calc(100% - 299px);
     display: flex;
     flex-direction: column;
     justify-content: center;
