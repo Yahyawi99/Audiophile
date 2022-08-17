@@ -39,6 +39,8 @@ function Provider({ children }) {
 
   // change view port depending on width size
   useEffect(() => {
+    checkWidth();
+
     window.addEventListener("resize", checkWidth);
     return () => {
       window.removeEventListener("resize", checkWidth);
