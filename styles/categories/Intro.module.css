@@ -1,0 +1,14 @@
+.container {
+    height: 40vh;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-dark-2);
+    color: var(--clr-light-3);
+}
+
+.container h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}

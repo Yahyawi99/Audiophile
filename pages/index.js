@@ -6,8 +6,6 @@ import Category from "../components/shared/Category";
 import Latest from "../components/home/Latest";
 import About from "../components/shared/About";
 import Footer from "../components/shared/Footer";
-// css
-import homeStyles from "../styles/home/Home.module.css";
 
 export default function Home() {
   return (
@@ -16,7 +14,7 @@ export default function Home() {
         <title>AudioPhile | Homepage</title>
       </Head>
 
-      <section className={homeStyles.container}>
+      <section>
         <Intro />
 
         <Category />
