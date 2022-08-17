@@ -25,5 +25,18 @@
   "engines": {
     "npm": "8.11.0",
     "node": "16.16.0"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "data.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yahyawi99/Audiophile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yahyawi99/Audiophile/issues"
+  },
+  "homepage": "https://github.com/Yahyawi99/Audiophile#readme"
 }
