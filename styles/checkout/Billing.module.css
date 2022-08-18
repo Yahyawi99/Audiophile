@@ -20,7 +20,7 @@
 
 .container form div {
     flex: .5;
-    min-width: 200px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -42,7 +42,7 @@
 /* ************************* */
 /* ************************* */
 /* Media Query */
-@media screen and (max-width:500px) {
+@media screen and (max-width:710px) {
     .container form div {
         flex: 1;
     }

@@ -56,7 +56,7 @@
 
 .container form div {
     flex: .5;
-    min-width: 200px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -121,6 +121,21 @@
 /* ************************* */
 /* ************************* */
 /* Media Query */
+@media screen and (max-width:710px) {
+    .container form {
+        flex-direction: column;
+    }
+
+    /* ************ */
+    .container .showForm {
+        top: 150px;
+    }
+
+    .container .slide {
+        margin: 275px auto 0 auto;
+    }
+}
+
 @media screen and (max-width:500px) {
     .container>div:nth-child(1) {
         flex-direction: column;
@@ -135,18 +150,12 @@
         width: 100%;
     }
 
-    .container form {
-        flex-direction: column;
-    }
 
     /* ************ */
     .container .showForm {
         top: 200px;
     }
 
-    .container .slide {
-        margin: 275px auto 0 auto;
-    }
 }
 
 @media screen and (max-width:350px) {
