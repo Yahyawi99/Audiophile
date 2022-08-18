@@ -54,7 +54,7 @@
 .container input:focus {
     outline: 2px solid var(--clr-dark-2);
     border-color: transparent;
-    transition: 1s;
+    transition: .5s;
 }
 
 
