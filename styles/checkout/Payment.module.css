@@ -1,0 +1,117 @@
+.container {
+    background-color: var(--clr-light-3);
+    border-radius: 10px;
+    position: relative;
+    padding: 25px;
+}
+
+.container h2 {
+    color: var(--clr-primary-1);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.container>div:nth-child(1) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.container div:nth-child(1) div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.container div:nth-child(1) div button {
+    width: 125px;
+    color: var(--clr-light-5);
+    border: 1px solid var(--clr-light-5);
+    border-radius: 5px;
+    transition: .25s;
+    padding: 20px 0px;
+}
+
+.container div:nth-child(1) div button svg {
+    font-size: 1.5rem;
+}
+
+
+
+/* Form */
+.container form {
+    width: calc(100% - 50px);
+    height: 0;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 25px;
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.container form div {
+    flex: .5;
+    min-width: 200px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container input {
+    width: 100%;
+    border: 1px solid var(--clr-light-5);
+    border-radius: 5px;
+    font-weight: 300;
+    padding: 15px 0px 15px 10px;
+}
+
+.container input::placeholder {
+    opacity: .5;
+}
+
+
+/* Pay button */
+.container>button {
+    width: 95%;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--clr-dark-2);
+    color: var(--clr-light-3);
+    transition: .5s;
+    position: relative;
+    z-index: 10;
+    padding: 15px 10px;
+    margin: -25px auto 0 auto;
+}
+
+.container>button:hover {
+    opacity: .9;
+}
+
+/* ************* */
+.container div:nth-child(1) div .choosenMethode {
+    background-color: var(--clr-primary-1);
+    color: var(--clr-light-3);
+    border-color: transparent;
+}
+
+.container .showForm {
+    height: fit-content;
+    bottom: initial;
+    top: 150px;
+    opacity: 1;
+    transition-delay: .5s;
+}
+
+.container .slide {
+    margin: 150px auto 0 auto;
+}

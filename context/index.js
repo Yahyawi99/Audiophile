@@ -11,6 +11,7 @@ function Provider({ children }) {
   const [currentRoute, setCurrentRoute] = useState(asPath);
   const [view, setView] = useState("");
   const [checkout, setCheckout] = useState(false);
+  const [payMethode, setPayMethode] = useState("cash");
 
   // get current paths
   useEffect(() => {
@@ -84,6 +85,8 @@ function Provider({ children }) {
         isFloat,
         view,
         checkout,
+        payMethode,
+        setPayMethode,
       }}
     >
       {children}
