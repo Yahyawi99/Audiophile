@@ -1,7 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { useRouter } from "next/dist/client/router";
 
 const AppContext = React.createContext();
+
 function Provider({ children }) {
   const { asPath } = useRouter();
 
@@ -9,10 +10,17 @@ function Provider({ children }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [currentRoute, setCurrentRoute] = useState(asPath);
   const [view, setView] = useState("");
+  const [checkout, setCheckout] = useState(false);
 
   // get current paths
   useEffect(() => {
     setCurrentRoute(asPath);
+
+    if (asPath.includes("checkout")) {
+      setCheckout(true);
+    } else {
+      setCheckout(false);
+    }
   }, [asPath]);
 
   const navigateTo = (path) => {
@@ -75,6 +83,7 @@ function Provider({ children }) {
         sortArr,
         isFloat,
         view,
+        checkout,
       }}
     >
       {children}

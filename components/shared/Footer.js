@@ -7,7 +7,7 @@ import { FaTwitter, FaInstagram } from "react-icons/fa";
 // css
 import footerStyles from "../../styles/shared/Footer.module.css";
 
-const Footer = () => {
+function Footer() {
   const { navigateTo, currentRoute } = useGlobal();
 
   return (
@@ -32,8 +32,7 @@ const Footer = () => {
           <Link href="/category/headphones">
             <a
               className={`${
-                currentRoute === "/category/headphones" &&
-                footerStyles.currentPage
+                currentRoute.includes("headphone") && footerStyles.currentPage
               }`}
               onClick={() => navigateTo("/category/headphones")}
             >
@@ -44,8 +43,7 @@ const Footer = () => {
           <Link href="/category/speakers">
             <a
               className={`${
-                currentRoute === "/category/speakers" &&
-                footerStyles.currentPage
+                currentRoute.includes("speaker") && footerStyles.currentPage
               }`}
               onClick={() => navigateTo("/category/speakers")}
             >
@@ -56,8 +54,7 @@ const Footer = () => {
           <Link href="/category/earphones">
             <a
               className={`${
-                currentRoute === "/category/earphones" &&
-                footerStyles.currentPage
+                currentRoute.includes("earphone") && footerStyles.currentPage
               }`}
               onClick={() => navigateTo("/category/earphones")}
             >
@@ -105,6 +102,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

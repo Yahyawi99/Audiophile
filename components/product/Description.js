@@ -10,8 +10,6 @@ function Description({ product }) {
     ? products.filter((e) => e.slug === product)
     : [];
 
-  console.log(SingleProduct);
-
   return (
     <section className={descriptionStyles.container}>
       {SingleProduct.length &&

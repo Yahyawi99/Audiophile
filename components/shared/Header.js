@@ -48,7 +48,7 @@ const Header = () => {
               <Link href="/category/headphones">
                 <a
                   className={`${
-                    currentRoute === "/category/headphones" &&
+                    currentRoute.includes("headphone") &&
                     headerStyles.currentPage
                   }`}
                   onClick={() => navigateTo("/category/headphones")}
@@ -61,8 +61,7 @@ const Header = () => {
               <Link href="/category/speakers">
                 <a
                   className={`${
-                    currentRoute === "/category/speakers" &&
-                    headerStyles.currentPage
+                    currentRoute.includes("speaker") && headerStyles.currentPage
                   }`}
                   onClick={() => navigateTo("/category/speakers")}
                 >
@@ -74,7 +73,7 @@ const Header = () => {
               <Link href="/category/earphones">
                 <a
                   className={`${
-                    currentRoute === "/category/earphones" &&
+                    currentRoute.includes("earphone") &&
                     headerStyles.currentPage
                   }`}
                   onClick={() => navigateTo("/category/earphones")}

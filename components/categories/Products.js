@@ -5,13 +5,11 @@ import Link from "next/link";
 // css
 import productStyles from "../../styles/categories/Products.module.css";
 
-const Products = ({ category: filter }) => {
-  const { sortArr, isFloat, view } = useGlobal();
+function Products({ category: filter }) {
+  const { sortArr, isFloat, view, setCurrentRoute } = useGlobal();
 
   let data = products.filter((e) => e.category === filter);
   data = sortArr(data);
-
-  console.log(data);
 
   return (
     <section className={productStyles.container}>
@@ -51,6 +49,6 @@ const Products = ({ category: filter }) => {
       })}
     </section>
   );
-};
+}
 
 export default Products;

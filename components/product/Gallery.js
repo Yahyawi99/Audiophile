@@ -1,19 +1,10 @@
 import React from "react";
-import { useGlobal } from "../../context";
 import { products } from "../../data";
 // css
 import galleryStyles from "../../styles/product/Gallery.module.css";
 
 function Gallery({ product }) {
-  const { view } = useGlobal();
-
   const SingleProduct = products.filter((e) => e.slug === product);
-
-  const sharedStyles = {
-    backgroundPosition: "cover",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
 
   return (
     <section className={galleryStyles.container}>

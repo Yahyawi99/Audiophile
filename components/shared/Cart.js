@@ -56,7 +56,7 @@ function Cart() {
             <p>$ 4,500</p>
           </div>
 
-          <Link href="/">
+          <Link href="/checkout">
             <button>
               <MdShoppingCart />
               <p>CHECKOUT</p>
