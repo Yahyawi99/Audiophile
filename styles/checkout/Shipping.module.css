@@ -43,3 +43,19 @@
 .container input::placeholder {
     opacity: .5;
 }
+
+
+/* ************************* */
+/* ************************* */
+/* Media Query */
+@media screen and (max-width:500px) {
+    .container form div {
+        flex: 1;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .container {
+        padding: 25px 10px;
+    }
+}

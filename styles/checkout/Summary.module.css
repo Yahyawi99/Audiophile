@@ -82,3 +82,19 @@
     color: var(--clr-primary-1);
     font-weight: 600;
 }
+
+
+/* ************************* */
+/* ************************* */
+/* Media Query */
+@media screen and (max-width:1024px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .container {
+        padding: 25px 10px;
+    }
+}

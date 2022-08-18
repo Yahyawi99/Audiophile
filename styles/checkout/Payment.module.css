@@ -17,6 +17,7 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 50px;
+    row-gap: 25px;
 }
 
 .container div:nth-child(1) div {
@@ -45,7 +46,6 @@
     width: calc(100% - 50px);
     height: 0;
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
     gap: 25px;
     position: absolute;
@@ -57,10 +57,10 @@
 .container form div {
     flex: .5;
     min-width: 200px;
-    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 2px 2px;
 }
 
 .container input {
@@ -114,4 +114,43 @@
 
 .container .slide {
     margin: 150px auto 0 auto;
+}
+
+
+
+/* ************************* */
+/* ************************* */
+/* Media Query */
+@media screen and (max-width:500px) {
+    .container>div:nth-child(1) {
+        flex-direction: column;
+    }
+
+    .container div:nth-child(1) div {
+        width: 100%;
+    }
+
+    .container div:nth-child(1) div button {
+        max-width: initial;
+        width: 100%;
+    }
+
+    .container form {
+        flex-direction: column;
+    }
+
+    /* ************ */
+    .container .showForm {
+        top: 200px;
+    }
+
+    .container .slide {
+        margin: 275px auto 0 auto;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .container {
+        padding: 25px 10px;
+    }
 }
