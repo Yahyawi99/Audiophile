@@ -1,4 +1,84 @@
 .container {
     width: 30%;
-    background-color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: var(--clr-light-3);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+
+/* Title */
+.container h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+/* Items */
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.items>div {
+    display: flex;
+    align-items: center;
+}
+
+.items>div>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.items>div>div p:nth-child(2) {
+    color: var(--clr-light-5);
+}
+
+.items div>img {
+    max-width: 60px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.items>div>p {
+    margin-left: auto;
+}
+
+/* details */
+.container div:nth-child(3) span {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.container div:nth-child(3) span p:nth-child(1) {
+    color: var(--clr-light-4);
+}
+
+.container div:nth-child(3) span p:nth-child(2) {
+    font-weight: 600;
+}
+
+
+/* Grand total */
+.container div:nth-child(4) {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container div:nth-child(4) p:nth-child(1) {
+    color: var(--clr-light-4);
+}
+
+.container div:nth-child(4) p:nth-child(2) {
+    color: var(--clr-primary-1);
+    font-weight: 600;
 }
