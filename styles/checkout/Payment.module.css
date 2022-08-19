@@ -162,4 +162,8 @@
     .container {
         padding: 25px 10px;
     }
+
+    .container form {
+        width: calc(100% - 20px);
+    }
 }
