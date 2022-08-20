@@ -1,29 +1,38 @@
 import React from "react";
+import { useGlobal } from "../../context";
 // css
 import SummaryStyles from "../../styles/checkout/Summary.module.css";
 
 function Summary() {
+  const { cart, formatNumber, cartPrice } = useGlobal();
+
   return (
     <section className={SummaryStyles.container}>
       <h2>SUMMARY</h2>
 
       <div className={SummaryStyles.items}>
-        <div>
-          <img src="/assets/cart/image-yx1-earphones.jpg" alt="product" />
+        {cart.map((e) => {
+          const { id, image, name, price, quantity } = e;
 
-          <div>
-            <p>XX99 Mark II</p>
-            <p>$ 2,999</p>
-          </div>
+          return (
+            <div key={id}>
+              <img src={image} alt="product" />
 
-          <p>x2</p>
-        </div>
+              <div>
+                <p>{name}</p>
+                <p>${formatNumber(price)}</p>
+              </div>
+
+              <p>x{quantity}</p>
+            </div>
+          );
+        })}
       </div>
 
       <div>
         <span>
           <p>Total</p>
-          <p>$ 5,998</p>
+          <p>${formatNumber(cartPrice)}</p>
         </span>
 
         <span>
@@ -39,7 +48,7 @@ function Summary() {
 
       <div>
         <p>Grand Total</p>
-        <p>$ 7,127</p>
+        <p>${formatNumber(cartPrice + 50 + 1079)}</p>
       </div>
     </section>
   );

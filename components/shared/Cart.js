@@ -9,8 +9,15 @@ import { useGlobal } from "../../context";
 import cartStyles from "../../styles/shared/Cart.module.css";
 
 function Cart() {
-  const { cartOpen, setCartOpen, cart, addToCart, removeFromCart } =
-    useGlobal();
+  const {
+    cartOpen,
+    setCartOpen,
+    cart,
+    addToCart,
+    removeFromCart,
+    cartPrice,
+    formatNumber,
+  } = useGlobal();
 
   return (
     <section
@@ -39,11 +46,8 @@ function Cart() {
                       <p>${price}</p>
                     </div>
 
-                    <div
-                      onClick={() => removeFromCart(e)}
-                      className={cartStyles.quantity}
-                    >
-                      <button>
+                    <div className={cartStyles.quantity}>
+                      <button onClick={() => removeFromCart(e)}>
                         <FaMinus />
                       </button>
 
@@ -72,7 +76,7 @@ function Cart() {
         <footer>
           <div>
             <p>TOTAL</p>
-            <p>$ 4,500</p>
+            <p>${formatNumber(cartPrice)}</p>
           </div>
 
           <Link href="/checkout">

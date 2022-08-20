@@ -14,6 +14,7 @@ function Provider({ children }) {
   const [payMethode, setPayMethode] = useState("cash");
   const [cart, setCart] = useState([]);
   const [cartLength, setCartLength] = useState("");
+  const [cartPrice, setCartPrice] = useState("");
 
   // get current paths
   useEffect(() => {
@@ -29,6 +30,18 @@ function Provider({ children }) {
   const navigateTo = (path) => {
     setCurrentRoute(path);
     setNavOpen(false);
+  };
+
+  // format price
+  const formatNumber = (num) => {
+    num += "";
+    let formatedNum = num.split("").reverse();
+
+    for (let i = 3; i < num.length; i = i + 4) {
+      formatedNum.splice(i, 0, ",");
+    }
+
+    return formatedNum.reverse().join("");
   };
 
   // sort array to put the new products first
@@ -86,12 +99,15 @@ function Provider({ children }) {
 
   useEffect(() => {
     let length = 0;
+    let price = 0;
 
     cart.forEach((e) => {
       length += e.quantity;
+      price += e.price * e.quantity;
     });
 
     setCartLength(length);
+    setCartPrice(price);
   }, [cart]);
 
   const addToCart = (item) => {
@@ -174,6 +190,8 @@ function Provider({ children }) {
         cart,
         cartLength,
         removeFromCart,
+        cartPrice,
+        formatNumber,
       }}
     >
       {children}
