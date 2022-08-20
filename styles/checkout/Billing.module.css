@@ -52,4 +52,8 @@
     .container {
         padding: 25px 10px;
     }
+
+    .container form div {
+        min-width: 100%;
+    }
 }

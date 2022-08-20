@@ -83,6 +83,18 @@
     background-color: var(--clr-primary-2);
 }
 
+/* ***************** */
+#disableButton {
+    opacity: .25;
+    pointer-events: none;
+}
+
+#disableIcon {
+    color: var(--clr-light-4);
+    opacity: .25;
+    pointer-events: none;
+}
+
 /* ****************************** */
 /* ****************************** */
 /* Media Query */

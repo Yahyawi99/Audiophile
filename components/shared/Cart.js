@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 // icons
-import { MdClose, MdShoppingCart } from "react-icons/md";
+import { MdClose, MdShoppingCart, MdOutlineShoppingBag } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
 // context
 import { useGlobal } from "../../context";
@@ -9,7 +9,8 @@ import { useGlobal } from "../../context";
 import cartStyles from "../../styles/shared/Cart.module.css";
 
 function Cart() {
-  const { cartOpen, setCartOpen } = useGlobal();
+  const { cartOpen, setCartOpen, cart, addToCart, removeFromCart } =
+    useGlobal();
 
   return (
     <section
@@ -25,29 +26,47 @@ function Cart() {
         </header>
 
         <section className={cartStyles.items}>
-          <div className={cartStyles.item}>
-            <img
-              src="/assets/product-zx9-speaker/desktop/image-product.jpg"
-              alt="product"
-            />
+          {cart && cart.length
+            ? cart.map((e) => {
+                const { id, image, name, price, quantity } = e;
 
-            <div className={cartStyles.info}>
-              <p>ZX9</p>
-              <p>$ 4,500</p>
+                return (
+                  <div key={id} className={cartStyles.item}>
+                    <img src={image} alt={name} />
+
+                    <div className={cartStyles.info}>
+                      <p>{name}</p>
+                      <p>${price}</p>
+                    </div>
+
+                    <div
+                      onClick={() => removeFromCart(e)}
+                      className={cartStyles.quantity}
+                    >
+                      <button>
+                        <FaMinus />
+                      </button>
+
+                      <p>{quantity}</p>
+
+                      <button
+                        id={quantity >= 3 ? cartStyles.disableIcon : ""}
+                        onClick={() => addToCart(e)}
+                      >
+                        <FaPlus />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })
+            : ""}
+
+          {(cart && cart.length > 0) || (
+            <div className={cartStyles.empty}>
+              <MdOutlineShoppingBag />
+              <p>YOUR CART IS EPMTY</p>
             </div>
-
-            <div className={cartStyles.quantity}>
-              <button>
-                <FaMinus />
-              </button>
-
-              <p>1</p>
-
-              <button>
-                <FaPlus />
-              </button>
-            </div>
-          </div>
+          )}
         </section>
 
         <footer>
@@ -57,7 +76,7 @@ function Cart() {
           </div>
 
           <Link href="/checkout">
-            <button>
+            <button id={cart.length <= 0 ? cartStyles.disableButton : ""}>
               <MdShoppingCart />
               <p>CHECKOUT</p>
             </button>

@@ -35,7 +35,7 @@ function Gallery({ product }) {
               <div
                 id={galleryStyles.image}
                 style={{
-                  background: `url(${third["desktop"]})`,
+                  background: `url(${third["mobile"]})`,
                 }}
               ></div>
             </div>

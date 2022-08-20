@@ -95,6 +95,27 @@
     display: none;
 }
 
+/* cart */
+.cart {
+    position: relative;
+}
+
+.cartQuantity {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-primary-1);
+    color: var(--clr-dark-2);
+    position: absolute;
+    left: -15px;
+    bottom: -15px;
+    font-size: .9rem;
+    font-weight: 600;
+    border-radius: 50%;
+}
+
 /* *********************************** */
 /* *********************************** */
 /* Media query */

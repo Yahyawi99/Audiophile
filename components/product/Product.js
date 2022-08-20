@@ -7,11 +7,19 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import productStyles from "../../styles/product/Product.module.css";
 
 function Product({ product }) {
-  const { view } = useGlobal();
+  const { view, addToCart, cart, removeFromCart } = useGlobal();
 
   const SingleProduct = products
     ? products.filter((e) => e.slug === product)
     : [];
+
+  const productFromCart = SingleProduct.length
+    ? cart.filter((e) => e.id === SingleProduct[0].id)
+    : [];
+
+  const quantityInCart = productFromCart.length
+    ? productFromCart[0].quantity
+    : 0;
 
   return (
     <section className={productStyles.container}>
@@ -40,18 +48,30 @@ function Product({ product }) {
 
               <div className={productStyles.btns}>
                 <div>
-                  <button>
+                  <button
+                    id={quantityInCart === 0 ? productStyles.disableIcon : ""}
+                    onClick={() => removeFromCart(e)}
+                  >
                     <FaMinus />
                   </button>
 
-                  <p>0</p>
+                  <p>{quantityInCart}</p>
 
-                  <button>
+                  <button
+                    id={quantityInCart >= 3 ? productStyles.disableIcon : ""}
+                    onClick={() => addToCart(e)}
+                  >
                     <FaPlus />
                   </button>
                 </div>
 
-                <button className={productStyles.addToCart}>ADD TO CART</button>
+                <button
+                  id={quantityInCart >= 3 ? productStyles.disableButton : ""}
+                  className={productStyles.addToCart}
+                  onClick={() => addToCart(e)}
+                >
+                  ADD TO CART
+                </button>
               </div>
             </div>
           </div>

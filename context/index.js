@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/dist/client/router";
 
 const AppContext = React.createContext();
@@ -12,6 +12,8 @@ function Provider({ children }) {
   const [view, setView] = useState("");
   const [checkout, setCheckout] = useState(false);
   const [payMethode, setPayMethode] = useState("cash");
+  const [cart, setCart] = useState([]);
+  const [cartLength, setCartLength] = useState("");
 
   // get current paths
   useEffect(() => {
@@ -71,6 +73,87 @@ function Provider({ children }) {
     }
   };
 
+  // cart
+  useEffect(() => {
+    if (!localStorage.getItem("Cart")) {
+      localStorage.setItem("Cart", JSON.stringify([]));
+    }
+
+    const storage = JSON.parse(localStorage.getItem("Cart"));
+
+    setCart(storage);
+  }, []);
+
+  useEffect(() => {
+    let length = 0;
+
+    cart.forEach((e) => {
+      length += e.quantity;
+    });
+
+    setCartLength(length);
+  }, [cart]);
+
+  const addToCart = (item) => {
+    const { id, slug, shortName, price } = item;
+
+    const storage = JSON.parse(localStorage.getItem("Cart"));
+
+    const checkForSameItem = storage.some((e) => e.id === id);
+    const product = checkForSameItem ? storage.find((e) => e.id === id) : [];
+
+    if (checkForSameItem) {
+      if (product.quantity < 3) {
+        storage.map((e) => {
+          if (e.id === id) {
+            e.quantity = e.quantity + 1;
+          }
+          return e;
+        });
+
+        localStorage.setItem("Cart", JSON.stringify(storage));
+      }
+    }
+
+    if (!checkForSameItem) {
+      const data = {
+        id,
+        image: `/assets/cart/image-${slug}.jpg`,
+        name: shortName,
+        price,
+        quantity: 1,
+      };
+
+      storage.push(data);
+
+      localStorage.setItem("Cart", JSON.stringify(storage));
+    }
+
+    setCart(storage);
+  };
+
+  const removeFromCart = (item) => {
+    let storage = JSON.parse(localStorage.getItem("Cart"));
+
+    const product = storage.find((e) => e.id === item.id);
+
+    if (product.quantity === 1) {
+      storage = storage.filter((e) => e.id !== product.id);
+    } else {
+      storage = storage.map((e) => {
+        if (e.id === product.id) {
+          product.quantity -= 1;
+          return e;
+        }
+        return e;
+      });
+    }
+
+    localStorage.setItem("Cart", JSON.stringify(storage));
+
+    setCart(storage);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -87,6 +170,10 @@ function Provider({ children }) {
         checkout,
         payMethode,
         setPayMethode,
+        addToCart,
+        cart,
+        cartLength,
+        removeFromCart,
       }}
     >
       {children}

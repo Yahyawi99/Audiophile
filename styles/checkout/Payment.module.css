@@ -166,4 +166,8 @@
     .container form {
         width: calc(100% - 20px);
     }
+
+    .container form div {
+        min-width: 100%;
+    }
 }

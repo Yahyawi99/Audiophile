@@ -14,8 +14,14 @@ import { useGlobal } from "../../context";
 import headerStyles from "../../styles/shared/Header.module.css";
 
 const Header = () => {
-  const { navOpen, setNavOpen, setCartOpen, currentRoute, navigateTo } =
-    useGlobal();
+  const {
+    navOpen,
+    setNavOpen,
+    setCartOpen,
+    currentRoute,
+    navigateTo,
+    cartLength,
+  } = useGlobal();
 
   return (
     <header className={headerStyles.header}>
@@ -107,6 +113,11 @@ const Header = () => {
             }}
           >
             <MdOutlineShoppingCart />
+            {cartLength ? (
+              <div className={headerStyles.cartQuantity}>{cartLength}</div>
+            ) : (
+              ""
+            )}
           </button>
         </div>
 
