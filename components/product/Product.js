@@ -1,6 +1,7 @@
 import React from "react";
 import { products } from "../../data";
 import { useGlobal } from "../../context";
+import { motion } from "framer-motion";
 // icons
 import { FaPlus, FaMinus } from "react-icons/fa";
 // css
@@ -55,7 +56,15 @@ function Product({ product }) {
                     <FaMinus />
                   </button>
 
-                  <p>{quantityInCart}</p>
+                  <motion.p
+                    key={quantityInCart}
+                    animate={{
+                      translateY: 0,
+                      opacity: 1,
+                    }}
+                  >
+                    {quantityInCart}
+                  </motion.p>
 
                   <button
                     id={quantityInCart >= 3 ? productStyles.disableIcon : ""}

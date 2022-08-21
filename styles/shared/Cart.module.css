@@ -62,6 +62,10 @@
 .container footer div p:nth-child(2) {
     font-size: 1rem;
     font-weight: 500;
+    transform: translateX(50px);
+    opacity: 0;
+    transition: .5s;
+    transition-timing-function: linear;
 }
 
 .container footer button {
@@ -126,6 +130,10 @@
 }
 
 .quantity p {
+    transform: translateY(50px);
+    transition: .5s;
+    transition-timing-function: "linear";
+    opacity: 0;
     font-weight: 500;
 }
 

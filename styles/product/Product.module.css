@@ -62,11 +62,19 @@
     justify-content: center;
     gap: 30px;
     background-color: var(--clr-light-1);
+    overflow: hidden;
     padding: 15px 0px;
 }
 
 .product .btns>div button {
     font-size: .8rem;
+}
+
+.product .btns>div p {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: .25s;
+    transition-timing-function: linear;
 }
 
 .product .addToCart {

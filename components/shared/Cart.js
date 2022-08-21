@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 // icons
 import { MdClose, MdShoppingCart, MdOutlineShoppingBag } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
@@ -8,7 +9,7 @@ import { useGlobal } from "../../context";
 // css
 import cartStyles from "../../styles/shared/Cart.module.css";
 
-function Cart() {
+const Cart = () => {
   const {
     cartOpen,
     setCartOpen,
@@ -51,7 +52,15 @@ function Cart() {
                         <FaMinus />
                       </button>
 
-                      <p>{quantity}</p>
+                      <motion.p
+                        key={quantity}
+                        animate={{
+                          translateY: 0,
+                          opacity: 1,
+                        }}
+                      >
+                        {quantity}
+                      </motion.p>
 
                       <button
                         id={quantity >= 3 ? cartStyles.disableIcon : ""}
@@ -76,7 +85,15 @@ function Cart() {
         <footer>
           <div>
             <p>TOTAL</p>
-            <p>${formatNumber(cartPrice)}</p>
+            <motion.p
+              key={cartPrice}
+              animate={{
+                translateX: 0,
+                opacity: 1,
+              }}
+            >
+              ${formatNumber(cartPrice)}
+            </motion.p>
           </div>
 
           <Link href="/checkout">
@@ -94,6 +111,6 @@ function Cart() {
       ></div>
     </section>
   );
-}
+};
 
 export default Cart;
