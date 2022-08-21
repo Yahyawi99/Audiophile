@@ -219,6 +219,10 @@ function Provider({ children }) {
         formSubmited();
       }
     }
+
+    window.scrollTo({
+      top: 0,
+    });
   };
 
   // billing form
