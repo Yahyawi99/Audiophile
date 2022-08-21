@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-light-1);
+}
+
+.container>div {
+    width: 95%;
+    max-width: 700px;
+    background-color: var(--clr-light-3);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: var(--bs-2);
+    padding: 40px 0;
+}
+
+
+.container h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.container p {
+    max-width: 500px;
+    letter-spacing: 1px;
+    margin: 30px auto;
+}
+
+.container span {
+    font-weight: 700;
+}
+
+.container button {
+    color: var(--clr-primary-1);
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s;
+    padding: 10px 20px;
+}
+
+.container button:hover {
+    background-color: var(--clr-light-1);
+}

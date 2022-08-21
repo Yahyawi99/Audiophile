@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    position: fixed;
+    top: 10px;
+    z-index: 10;
+}
+
+
+.container h2 {
+    height: 30px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: var(--clr-danger-1);
+    color: var(--clr-light-3);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 0px 20px;
+    margin: 0 auto;
+}

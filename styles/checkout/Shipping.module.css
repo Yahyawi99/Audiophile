@@ -23,7 +23,19 @@
     min-width: 300px;
     display: flex;
     flex-direction: column;
+    position: relative;
     gap: 10px;
+}
+
+.container form div p {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--clr-danger-1);
+    color: var(--clr-light-3);
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 0 5px;
 }
 
 .container form div:nth-child(1) {

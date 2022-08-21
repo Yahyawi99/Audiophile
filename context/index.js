@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { useRouter } from "next/dist/client/router";
 
 const AppContext = React.createContext();
@@ -15,7 +15,31 @@ function Provider({ children }) {
   const [cart, setCart] = useState([]);
   const [cartLength, setCartLength] = useState("");
   const [cartPrice, setCartPrice] = useState("");
+  const [purshaseCompleted, setPurshaseCompleted] = useState(false);
+  const [error, setError] = useState(false);
 
+  const [billingData, setBillingData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+  const BillingFormRef = useRef(null);
+
+  const [shippingData, setShippingData] = useState({
+    address: "",
+    zip_code: "",
+    city: "",
+    country: "",
+  });
+  const ShippingFormRef = useRef(null);
+
+  const [paymentData, setPaymentData] = useState({
+    e_money_number: "",
+    e_money_pin: "",
+  });
+  const PaymentFormRef = useRef(null);
+
+  // *****************************************
   // get current paths
   useEffect(() => {
     setCurrentRoute(asPath);
@@ -86,6 +110,13 @@ function Provider({ children }) {
     }
   };
 
+  // email validator
+  const emailValidate = (email) => {
+    const regex = /^[a-z]{3,}\d*@[a-z]*[.][a-z]*$/gi;
+    return regex.test(email);
+  };
+
+  // **************************************
   // cart
   useEffect(() => {
     if (!localStorage.getItem("Cart")) {
@@ -170,6 +201,207 @@ function Provider({ children }) {
     setCart(storage);
   };
 
+  // *******************************
+  const formSubmit = () => {
+    if (payMethode === "cash") {
+      billingForm();
+      shippingForm();
+
+      if (billingForm() && shippingForm()) {
+        formSubmited();
+      }
+    } else {
+      billingForm();
+      shippingForm();
+      paymentForm();
+
+      if (billingForm() && shippingForm() && paymentForm()) {
+        formSubmited();
+      }
+    }
+  };
+
+  // billing form
+  const billingForm = () => {
+    const form = BillingFormRef.current;
+    const Inputs = form.getElementsByTagName("input");
+
+    let success = true;
+
+    [...Inputs].forEach((input) => {
+      const label = input.previousElementSibling;
+      const emptyMessage = input.nextElementSibling;
+      const formatMessage = input.nextElementSibling.nextElementSibling;
+
+      try {
+        if (input.value === "") {
+          emptyInputError(label, input, emptyMessage, formatMessage, success);
+        }
+
+        if (
+          input.name === "email" &&
+          !emailValidate(input.value) &&
+          input.value !== ""
+        ) {
+          formatInputError(label, input, formatMessage, success);
+        }
+
+        if (input.name === "number" && input.value.length < 10) {
+          formatInputError(label, input, formatMessage, success);
+        }
+      } catch (err) {
+        clearError(label, input, emptyMessage, formatMessage);
+
+        success = false;
+      }
+    });
+
+    return success;
+  };
+
+  // shipping form
+  const shippingForm = () => {
+    const form = ShippingFormRef.current;
+    const Inputs = form.getElementsByTagName("input");
+
+    let success = true;
+
+    [...Inputs].forEach((input) => {
+      const label = input.previousElementSibling;
+      const emptyMessage = input.nextElementSibling;
+      const formatMessage = input.nextElementSibling.nextElementSibling;
+
+      try {
+        if (input.value === "") {
+          emptyInputError(label, input, emptyMessage, formatMessage, success);
+        }
+
+        if (input.value.length < 5) {
+          formatInputError(label, input, formatMessage, success);
+        }
+      } catch (err) {
+        clearError(label, input, emptyMessage, formatMessage);
+        success = false;
+      }
+    });
+
+    return success;
+  };
+
+  // payment form
+  const paymentForm = () => {
+    const form = PaymentFormRef.current;
+    const Inputs = form.getElementsByTagName("input");
+
+    let success = true;
+
+    [...Inputs].forEach((input) => {
+      const label = input.previousElementSibling;
+      const emptyMessage = input.nextElementSibling;
+      const formatMessage = input.nextElementSibling.nextElementSibling;
+
+      try {
+        if (input.value === "") {
+          emptyInputError(label, input, emptyMessage, formatMessage, success);
+        }
+
+        if (input.name === "e-money number" && input.value.length < 16) {
+          formatInputError(label, input, formatMessage, success);
+        }
+
+        if (input.name === "pin" && input.value.length < 4) {
+          formatInputError(label, input, formatMessage, success);
+        }
+      } catch (err) {
+        clearError(label, input, emptyMessage, formatMessage);
+
+        success = false;
+      }
+    });
+
+    return success;
+  };
+
+  // ****************************
+  // form errors and succes functions
+  const clearError = (label, input, emptyMessage, formatMessage) => {
+    setTimeout(() => {
+      label.style.color = "var(--clr-dark-2)";
+      input.style.border = "1px solid var(--clr-light-5)";
+
+      emptyMessage ? (emptyMessage.style.display = "none") : "";
+
+      formatMessage ? (formatMessage.style.display = "none") : "";
+    }, 10000);
+
+    setTimeout(() => {
+      setError(false);
+    }, 2500);
+  };
+
+  const emptyInputError = (
+    label,
+    input,
+    emptyMessage,
+    formatMessage,
+    success
+  ) => {
+    label.style.color = "var(--clr-danger-1)";
+    input.style.border = "1px solid var(--clr-danger-1)";
+
+    emptyMessage ? (emptyMessage.style.display = "flex") : "";
+
+    formatMessage ? (formatMessage.style.display = "none") : "";
+
+    success = false;
+
+    setError(true);
+
+    throw new Error("empty value");
+  };
+
+  const formatInputError = (label, input, formatMessage, success) => {
+    label.style.color = "var(--clr-danger-1)";
+    input.style.border = "1px solid var(--clr-danger-1)";
+    formatMessage ? (formatMessage.style.display = "flex") : "";
+
+    success = false;
+
+    setError(true);
+
+    throw new Error("wrong format");
+  };
+
+  const formSubmited = () => {
+    setError(false);
+    setPurshaseCompleted(true);
+    setCart([]);
+    localStorage.setItem("Cart", JSON.stringify([]));
+    setCartOpen(false);
+  };
+
+  const backHome = () => {
+    setPurshaseCompleted(false);
+
+    setBillingData({
+      name: "",
+      email: "",
+      phone: "",
+    });
+
+    setShippingData({
+      address: "",
+      zip_code: "",
+      city: "",
+      country: "",
+    });
+
+    setPaymentData({
+      e_money_number: "",
+      e_money_pin: "",
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -192,6 +424,21 @@ function Provider({ children }) {
         removeFromCart,
         cartPrice,
         formatNumber,
+        purshaseCompleted,
+        billingData,
+        setBillingData,
+        BillingFormRef,
+        shippingData,
+        setShippingData,
+        ShippingFormRef,
+        shippingForm,
+        paymentData,
+        setPaymentData,
+        PaymentFormRef,
+        formSubmit,
+        setPurshaseCompleted,
+        backHome,
+        error,
       }}
     >
       {children}
