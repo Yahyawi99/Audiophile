@@ -116,6 +116,13 @@
     border-radius: 50%;
 }
 
+.cartQuantity>p {
+    transform: scale(0);
+    opacity: 0;
+    transition: .25s;
+    transition-timing-function: linear;
+}
+
 /* *********************************** */
 /* *********************************** */
 /* Media query */

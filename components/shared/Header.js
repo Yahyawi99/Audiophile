@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 // icons
 import {
   MdOutlineShoppingCart,
@@ -114,7 +115,11 @@ const Header = () => {
           >
             <MdOutlineShoppingCart />
             {cartLength ? (
-              <div className={headerStyles.cartQuantity}>{cartLength}</div>
+              <div className={headerStyles.cartQuantity}>
+                <motion.p key={cartLength} animate={{ scale: 1, opacity: 1 }}>
+                  {cartLength}
+                </motion.p>
+              </div>
             ) : (
               ""
             )}
