@@ -17,7 +17,7 @@ function Index() {
     <>
       <Head>
         <title>
-          AudioPhile | {category[0].toLocaleUpperCase() + category.slice(1)}
+          AudioPhile | {category && category[0].toLocaleUpperCase() + category.slice(1)}
         </title>
       </Head>
 

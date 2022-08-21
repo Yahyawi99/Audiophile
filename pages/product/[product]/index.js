@@ -21,10 +21,11 @@ function Index() {
       <Head>
         <title>
           AudioPhile |{" "}
-          {product
-            .split("-")
-            [product.split("-").length - 1][0].toLocaleUpperCase() +
-            product.split("-")[product.split("-").length - 1].slice(1)}
+          {product &&
+            product
+              .split("-")
+              [product.split("-").length - 1][0].toLocaleUpperCase() +
+              product.split("-")[product.split("-").length - 1].slice(1)}
         </title>
       </Head>
       <section>
