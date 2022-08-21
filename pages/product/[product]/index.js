@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 // components
 import Product from "../../../components/product/Product";
 import Description from "../../../components/product/Description";
@@ -16,21 +17,29 @@ function Index() {
   } = useRouter();
 
   return (
-    <section>
-      <Product product={product} />
+    <>
+      <Head>
+        <title>
+          AudioPhile |{" "}
+          {product.split("-")[1][0].toLocaleUpperCase() + product.split("-")[1]}
+        </title>
+      </Head>
+      <section>
+        <Product product={product} />
 
-      <Description product={product} />
+        <Description product={product} />
 
-      <Gallery product={product} />
+        <Gallery product={product} />
 
-      <Suggestions product={product} />
+        <Suggestions product={product} />
 
-      <Category />
+        <Category />
 
-      <About />
+        <About />
 
-      <Footer />
-    </section>
+        <Footer />
+      </section>
+    </>
   );
 }
 
