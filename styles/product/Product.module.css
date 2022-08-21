@@ -73,7 +73,7 @@
 .product .btns>div p {
     transform: translateY(50px);
     opacity: 0;
-    transition: .25s;
+    transition: .5s;
     transition-timing-function: linear;
 }
 

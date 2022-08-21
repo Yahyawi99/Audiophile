@@ -340,7 +340,7 @@ function Provider({ children }) {
 
     setTimeout(() => {
       setError(false);
-    }, 2500);
+    }, 5000);
   };
 
   const emptyInputError = (
@@ -384,9 +384,7 @@ function Provider({ children }) {
     setCartOpen(false);
   };
 
-  const backHome = () => {
-    setPurshaseCompleted(false);
-
+  const backHome = async () => {
     setBillingData({
       name: "",
       email: "",
@@ -404,6 +402,10 @@ function Provider({ children }) {
       e_money_number: "",
       e_money_pin: "",
     });
+
+    if (asPath === "/") {
+      setPurshaseCompleted(false);
+    }
   };
 
   return (

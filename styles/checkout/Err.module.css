@@ -1,7 +1,11 @@
 .container {
     width: 100%;
     position: fixed;
-    top: 10px;
+    transform: translateY(-25px);
+    opacity: 0;
+    transition: .25s;
+    transition-delay: .5s;
+    transition-timing-function: linear;
     z-index: 10;
 }
 

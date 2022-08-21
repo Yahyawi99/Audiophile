@@ -5,7 +5,7 @@ import { useGlobal } from "../context";
 // components
 import Header from "./shared/Header";
 import Cart from "./shared/Cart";
-import Err from "./shared/Err";
+import Err from "./checkout/Err";
 
 const Layout = ({ children }) => {
   const { error } = useGlobal();
