@@ -5,7 +5,7 @@ import { useGlobal } from "../../context";
 import MessageStyles from "../../styles/checkout/Message.module.css";
 
 function Message() {
-  const { backHome } = useGlobal();
+  const { backHome, billingData } = useGlobal();
 
   return (
     <section className={MessageStyles.container}>
@@ -13,9 +13,9 @@ function Message() {
         <h2>Thanks For Your Purchase</h2>
 
         <p>
-          Hey test <span>Yassin</span> ! Your order has been submitted
+          Hey <span>{billingData.name}</span> ! Your order has been submitted
           successfully. To keep track of your order, follow the instruction
-          which has been sent to <span> test@test.com</span>
+          which has been sent to <span>{billingData.email}</span>
         </p>
 
         <Link href="/">
